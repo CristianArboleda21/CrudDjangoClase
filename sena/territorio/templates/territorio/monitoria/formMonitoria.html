@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario monitoria</title>
+</head>
+<body>
+    
+    <h1>Formulario monitorias</h1>
+
+    <form action="{% url 'territorio:monitoriasGuardar'%}" method="post">
+ 
+        {% csrf_token %}
+
+        <label for="">Categoria</label><br>
+        <input type="text" name="cat" placeholder="Adsi"><br><br>
+
+        <label for="">Nombre aprendiz</label><br>
+        <select name="aprendiz">
+            {% if datos%}
+                {% for r in datos %}
+                    <option value="{{r.id}}">{{r.nombre}}</option>
+                {% endfor %}
+            {% endif %}
+        </select><br><br>
+
+        <label for="">Fecha inicio</label><br>
+        <input type="datetime-local" name="fecha_Inicio"><br><br>
+
+        <label for="">Fecha fin</label><br>
+        <input type="datetime-local" name="fecha_Final"><br><br>
+
+        <button type="submit">Guardar</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'territorio/css/style.css'%}">
+    <title>Terrritorio Sena</title>
+</head>
+<body>
+    <h1>Bienvenidos a territorio</h1>
+    <a href="{% url 'territorio:listar-aprendices' %}">Aprendiz</a><br>
+    <a href="{% url 'territorio:listar-monitoria' %}">Monitorias</a><br>
+    <a href="{% url 'territorio:listar-actividades'%}">Actividades</a><br>
+    <br><br>
+    <img src="{% static 'territorio/img/images.jpeg' %}" alt="">
+    <script src="{% static 'territorio/js/funciones.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar monitorias</title>
+</head>
+<body>
+
+    <h1>Monitorias</h1><br>
+
+    <a href="{% url 'territorio:crearMonitoria'%}">Crear monitoria</a><br>
+    <a href="{% url 'territorio:index' %}">Inicio</a><br>
+
+    {% if datosM %}
+
+        <table border="1" width="50%">
+            <thead>
+                <tr>
+                    <td>Categoria</td>
+                    <td>Aprendiz</td>
+                    <td>Fecha de inicio</td>
+                    <td>Fecha de fin</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in datosM %}
+                    <tr>
+                        <td>{{ i.cat}}</td>
+                        <td>{{ i.aprendiz.nombre}}</td>
+                        <td>{{ i.fecha_Inicio }}</td>
+                        <td>{{ i.fecha_Final}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h3>No hay datos de las monitorias</h3>
+    {% endif %}
+</body>
+</html>
